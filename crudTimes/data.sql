@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `time` (
 -- Dumping data for table `data`
 --
 
-INSERT INTO `data` (`id`, `nome`, `cidade`,`uf`) VALUES
+INSERT INTO `time` (`id`, `nome`, `cidade`,`uf`) VALUES
 (1, 'Flamengo', 'Rio de Janeiro', 'RJ'),
 (2, 'Fluminense', 'Rio de Janeiro', 'RJ'),
 (3, 'Bangu', 'Rio de Janeiro', 'RJ'),
