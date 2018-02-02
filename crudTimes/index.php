@@ -1,72 +1,47 @@
 <?php
 include_once 'crud.php';
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>PHP CRUD</title>
-<link rel="stylesheet" href="style.css" type="text/css" />
-</head>
+
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8">
+		<title>Torcedores Times Campeonatos</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="style.css">
+	</head>
 
 <body>
 <center>
 <div id="header">
-	<label>Fabiano</label>
+	<label>Menu:</label>
+	<a href="cadastraTorcedor.php"> Torcedores </a>
 </div>
+<select name="meses">
+<option value="1"> Janeiro </option>
+<option value="2"> Fevereiro </option>
+<option value="3"> Março </option>
+<option value="4"> Abril </option>
+<option value="5"> Maio </option>
 
-<div id="form">
-<form method="post">
-<table width="100%" border="1" cellpadding="15">
-<tr>
-<td><input type="text" name="nome" placeholder="Time" value="<?php if(isset($_GET['edit'])) echo $getROW['nome'];  ?>" /></td>
-</tr>
-<tr>
-<td><input type="text" name="cidade" placeholder="Cidade" value="<?php if(isset($_GET['edit'])) echo $getROW['cidade'];  ?>" /></td>
-</tr>
-<tr>
-<td><input type="text" name="uf" placeholder="Estado" value="<?php if(isset($_GET['edit'])) echo $getROW['uf'];  ?>" /></td>
-</tr>
-<tr>
-<td><input type="text" name="bandeira" placeholder="Bandeira" value="<?php if(isset($_GET['edit'])) echo $getROW['bandeira'];  ?>" /></td>
-</tr>
-<tr>
-<td>
+</select>
+
+<br/><hr/>
+<h2>Times</h2>
+<table class="table table-striped" >
 <?php
-if(isset($_GET['edit']))
-{
-	?>
-	<button type="submit" name="update">update</button>
-	<?php
-}
-else
-{
-	?>
-	<button type="submit" name="save">Salvar</button>
-	<?php
-}
-?>
-</td>
-</tr>
-</table>
-</form>
-
-<br /><br />
-
-<table width="100%" border="1" cellpadding="15" align="center">
-<?php
-$res = $MySQLiconn->query("SELECT * FROM time");
+$res = $MySQLiconn->query("SELECT * FROM times");
 while($row=$res->fetch_array())
 {
 	?>
-    <tr>
-    <td><?php echo $row['id']; ?></td>
+   
+<tr>
     <td><?php echo $row['nome']; ?></td>
-    <td><?php echo $row['cidade']; ?></td>
-	<td><?php echo $row['uf']; ?></td>
 	<td><?php echo $row['bandeira']; ?></td>
-    <td><a href="?edit=<?php echo $row['id']; ?>" onclick="return confirm('sure to edit !'); " >edit</a></td>
-    <td><a href="?del=<?php echo $row['id']; ?>" onclick="return confirm('sure to delete !'); " >delete</a></td>
+    <td><a data-toggle="collapse"  href="?edit=<?php echo $row['idtime']; ?>" >edit</a></td>
+    <td><a href="?del=<?php echo $row['idtime']; ?>" onclick="return confirm('sure to delete !'); " >delete</a></td>
     </tr>
     <?php
 }

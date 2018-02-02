@@ -1,6 +1,6 @@
 <?php
      define('_HOST_NAME','localhost');
-     define('_DATABASE_NAME','dbtest');
+     define('_DATABASE_NAME','campeonatov2');
      define('_DATABASE_USER_NAME','root');
      define('_DATABASE_PASSWORD','');
 	
