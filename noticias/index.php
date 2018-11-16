@@ -6,20 +6,20 @@ require "verifica.php";
 require "comum.php"; 
 
 // Imprime mensagem de boas vindas 
-echo "<font face=\"Verdana\" size=2>Bem-Vindo " . $_SESSION["nome_usuario"] . "!<BR>\n"; 
+echo "<font face=\"Verdana\" size=2>Bem-Vindo " .$_SESSION["nome_usuario"] . "!<BR>\n"; 
 
 // Verifica e imprime quantidade de notícias no nome do usuário 
 //$SQL = "SELECT id FROM aut_noticias WHERE aut_usuario_id = " . $_SESSION["id_usuario"]; 
 //$result_id = mysql_query($SQL) or die(mysql_error()); 
 //$total = mysql_num_rows($result_id); 
 
-$res = $MySQLiconn->query("SELECT id FROM aut_noticias WHERE aut_usuario_id = " . $_SESSION['id_usuario']);
+$res = $MySQLiconn->query("SELECT id FROM aut_noticias WHERE aut_usuario_id = " .$_SESSION['id_usuario']);
 $total=$res->fetch_array();
 $tot= count($total);
 
 if(count($total)) 
 { 
-echo "Há um total de " .$tot. " notícia(s) de sua autoria!\n"; 
+echo "Há um total de ".$tot." notícia(s) de sua autoria!\n"; 
 } 
 else 
 { 
