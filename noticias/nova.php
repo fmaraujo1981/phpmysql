@@ -12,5 +12,5 @@ exit;
 // Se o script continuar aqui, é que o usuário tem permissão 
 // Então.. seu formulário de postagem abaixo 
 
-echo criar a estrutura par apostar
+echo "criar a estrutura par apostar";
 ?>

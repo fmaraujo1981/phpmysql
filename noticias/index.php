@@ -17,9 +17,9 @@ $res = $MySQLiconn->query("SELECT id FROM aut_noticias WHERE aut_usuario_id = " 
 $total=$res->fetch_array();
 $tot= count($total);
 
-if(count($tot)) 
+if(count($total)) 
 { 
-echo "Há um total de " . $tot . " notícia(s) de sua autoria!\n"; 
+echo "Há um total de " .$tot. " notícia(s) de sua autoria!\n"; 
 } 
 else 
 { 
@@ -63,7 +63,7 @@ while($dados=$res->fetch_array())
 //while($dados = mysql_fetch_array($result_id)) 
 { 
 echo "<tr><td>" . $dados["id"] . "</td><td>";
-echo "<a href=\ver_noticia.php?id=" . $dados["id"] . "\>" . stripslashes($dados["titulo"]);
+echo "<a href=ver_noticia.php?id=".$dados["id"]. "\>" . stripslashes($dados["titulo"]);
 echo "</a></td>"; 
 echo "<td>" .  $dados["data"] . "</td></tr>\n"; 
 } 
